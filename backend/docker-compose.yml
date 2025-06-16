@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - HF_TOKEN=${HF_TOKEN}
+    depends_on:
+      - redis
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"

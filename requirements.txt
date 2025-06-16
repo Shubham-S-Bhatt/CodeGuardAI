@@ -1,5 +1,7 @@
-Django>=3.2
+Django>=4.2
 djangorestframework
-PyGithub
-openai
-gunicorn
+celery
+redis
+transformers
+torch
+PyYAML
